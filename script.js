@@ -139,16 +139,16 @@ document.querySelectorAll('.skill-card').forEach(card => {
     });
 });
 
-const videoFiles = {
-    '安慕希整颗蓝莓': 'Resource/Video/01.安慕希整颗蓝莓.mp4',
-    '小琨追光': 'Resource/Video/02.小琨追光.mp4',
-    '野生菌宣传': 'Resource/Video/03.野生菌宣传.mp4',
-    '暗夜': 'Resource/Video/04.暗夜.mp4',
-    '拾古斋': 'Resource/Video/05.拾古斋.mp4',
-    '熊猫的一天': 'Resource/Video/06.熊猫的一天.mp4',
-    '末世求生': 'Resource/Video/07.末世求生.mp4',
-    '夜话': 'Resource/Video/08.夜话.mp4',
-    '雨夜独白': 'Resource/Video/09.雨夜独白.mp4'
+const bilibiliLinks = {
+    '安慕希整颗蓝莓': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589974261592&bvid=BV1ofLJ6tEML&cid=38405014418&p=1&t=0',
+    '小琨追光': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589974324640&bvid=BV17fLJ6bEPa&cid=38405015730&p=1&t=0',
+    '野生菌宣传': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589974327290&bvid=BV1jfLJ6bEv8&cid=38405017351&p=1&t=0',
+    '暗夜': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589991101734&bvid=BV17ZLJ6FESx&cid=38405081118&p=1&t=0',
+    '拾古斋': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589991101915&bvid=BV17ZLJ6FE1P&cid=38405144844&p=1&t=0',
+    '熊猫的一天': 'https://player.bilibili.com/player.html?isOutside=true&aid=116590846674401&bvid=BV1FdLH6uEfr&cid=38409668943&p=1&t=0',
+    '末世求生': 'https://player.bilibili.com/player.html?isOutside=true&aid=116590863453970&bvid=BV1c9LH66E7J&cid=38409669884&p=1&t=0',
+    '夜话': 'https://player.bilibili.com/player.html?isOutside=true&aid=116590863452989&bvid=BV1c9LH66Eib&cid=38409670394&p=1&t=0',
+    '雨夜独白': 'https://player.bilibili.com/player.html?isOutside=true&aid=116590863517831&bvid=BV1n9LH66EUm&cid=38409732660&p=1&t=0'
 };
 
 const pptData = {
@@ -166,40 +166,6 @@ const pptData = {
     }
 };
 
-document.querySelectorAll('.video-player').forEach(video => {
-    let posterGenerated = false;
-
-    video.addEventListener('loadedmetadata', function () {
-        if (posterGenerated || this.poster) return;
-
-        try {
-            const canvas = document.createElement('canvas');
-            canvas.width = this.videoWidth || 320;
-            canvas.height = this.videoHeight || 180;
-            const ctx = canvas.getContext('2d');
-
-            this.addEventListener('seeked', function onSeeked() {
-                if (posterGenerated) return;
-                posterGenerated = true;
-                this.removeEventListener('seeked', onSeeked);
-                ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
-                try {
-                    this.poster = canvas.toDataURL('image/jpeg', 0.6);
-                } catch (e) { }
-            }, { once: true });
-
-            this.currentTime = 0.1;
-        } catch (e) { }
-    });
-
-    video.addEventListener('error', function () {
-        const container = this.closest('.video-container');
-        if (container) {
-            container.style.background = 'linear-gradient(135deg, #1a1a2e, #16213e)';
-        }
-    });
-});
-
 document.querySelectorAll('.portfolio-item').forEach(item => {
     const title = item.querySelector('h4')?.textContent;
     const videoItem = item.classList.contains('video-item');
@@ -213,39 +179,11 @@ document.querySelectorAll('.portfolio-item').forEach(item => {
                 openPptModal(pptId);
             }
         });
-    } else if (videoItem && title && videoFiles[title]) {
-        const video = item.querySelector('.video-player');
-
+    } else if (videoItem && title && bilibiliLinks[title]) {
+        item.style.cursor = 'pointer';
         item.addEventListener('click', (e) => {
-            if (e.target.closest('.video-container') && !e.target.closest('.play-icon')) return;
-
-            if (item.classList.contains('playing')) {
-                video.pause();
-                video.currentTime = 0;
-                item.classList.remove('playing');
-            } else {
-                document.querySelectorAll('.video-item.playing').forEach(playingItem => {
-                    const playingVideo = playingItem.querySelector('.video-player');
-                    playingVideo.pause();
-                    playingVideo.currentTime = 0;
-                    playingItem.classList.remove('playing');
-                });
-                video.play();
-                item.classList.add('playing');
-            }
-        });
-
-        video.addEventListener('ended', () => {
-            item.classList.remove('playing');
-        });
-
-        video.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (video.paused) {
-                video.play();
-            } else {
-                video.pause();
-            }
+            if (e.target.closest('.fullscreen-btn')) return;
+            openBilibiliModal(title);
         });
     }
 });
@@ -279,61 +217,50 @@ document.addEventListener('keydown', (e) => {
 });
 
 const fullscreenModal = document.getElementById('video-fullscreen-modal');
-const fullscreenVideo = document.getElementById('fullscreen-video-player');
+const fullscreenIframe = document.getElementById('fullscreen-video-iframe');
 const fullscreenTitle = document.getElementById('fullscreen-video-title');
 const closeFullscreenBtn = document.getElementById('close-fullscreen-modal');
+
+function openBilibiliModal(title) {
+    const iframeSrc = bilibiliLinks[title];
+    console.log('Opening Bilibili modal for:', title, 'URL:', iframeSrc);
+    if (iframeSrc) {
+        fullscreenIframe.src = iframeSrc;
+        fullscreenTitle.textContent = `🎬 ${title}`;
+        fullscreenModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('Modal opened');
+    }
+}
+
+function closeBilibiliModal() {
+    fullscreenIframe.src = '';
+    fullscreenModal.classList.remove('active');
+    document.body.style.overflow = '';
+}
 
 document.querySelectorAll('.fullscreen-btn').forEach(btn => {
     btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const portfolioItem = btn.closest('.portfolio-item');
         const title = portfolioItem.querySelector('h4')?.textContent;
-        const videoSrc = videoFiles[title];
-        const originalVideo = portfolioItem.querySelector('.video-player');
-
-        if (videoSrc && originalVideo) {
-            const currentTime = originalVideo.currentTime;
-            const isPlaying = !originalVideo.paused;
-
-            fullscreenVideo.querySelector('source').src = videoSrc;
-            fullscreenTitle.textContent = `🎬 ${title}`;
-            fullscreenVideo.load();
-
-            fullscreenVideo.addEventListener('loadedmetadata', function onLoaded() {
-                fullscreenVideo.removeEventListener('loadedmetadata', onLoaded);
-                fullscreenVideo.currentTime = currentTime;
-                if (isPlaying) {
-                    fullscreenVideo.play();
-                }
-            });
-
-            fullscreenModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-
-            originalVideo.pause();
+        if (title && bilibiliLinks[title]) {
+            openBilibiliModal(title);
         }
     });
 });
 
-closeFullscreenBtn.addEventListener('click', () => {
-    fullscreenVideo.pause();
-    fullscreenModal.classList.remove('active');
-    document.body.style.overflow = '';
-});
+closeFullscreenBtn.addEventListener('click', closeBilibiliModal);
 
 fullscreenModal.addEventListener('click', (e) => {
     if (e.target === fullscreenModal) {
-        fullscreenVideo.pause();
-        fullscreenModal.classList.remove('active');
-        document.body.style.overflow = '';
+        closeBilibiliModal();
     }
 });
 
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && fullscreenModal.classList.contains('active')) {
-        fullscreenVideo.pause();
-        fullscreenModal.classList.remove('active');
-        document.body.style.overflow = '';
+        closeBilibiliModal();
     }
 });
 
