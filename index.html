@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的作品集 - 个人主页</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="grid-bg"></div>
+    <div class="scan-overlay"></div>
+    <div class="stars" id="stars"></div>
+    <div class="particles" id="particles"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <nav>
+        <div class="nav-brand">
+            <span class="brand-mark">⌬</span>
+            <span>QIUPENG.DEV</span>
+        </div>
+        <div class="nav-status">
+            <span class="dot"></span>
+            <span>SYSTEM ONLINE</span>
+        </div>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#portfolio">WORKS</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#about-contact">ABOUT</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-orbit"></div>
+        <div class="hero-corners">
+            <span></span><span></span><span></span><span></span>
+        </div>
+        <div class="hero-meta tl">
+            <div><span class="label">SYS</span> portfolio.v2.6</div>
+            <div><span class="label">LAT</span> 30.5728°N</div>
+            <div><span class="label">LNG</span> 104.0668°E</div>
+        </div>
+        <div class="hero-meta tr">
+            <div><span class="label">STATUS</span> ACTIVE</div>
+            <div><span class="label">YEAR</span> 2026</div>
+            <div><span class="label">MODE</span> CREATIVE</div>
+        </div>
+        <div class="hero-meta bl">
+            <div>// SCROLL TO EXPLORE ↓</div>
+        </div>
+        <div class="hero-meta br">
+            <div>UPLINK ESTABLISHED ●</div>
+        </div>
+
+        <div class="hero-content">
+            <span class="hero-tag">DIGITAL CREATIVE / 2026</span>
+            <h1 data-text="DIGITAL PORTFOLIO">DIGITAL PORTFOLIO</h1>
+            <p>CREATIVE · DEVELOPER · DESIGNER</p>
+            <div class="hero-terminal">
+                <span class="prompt">$</span>
+                <span>./initialize</span>
+                <span class="typed" id="hero-typed"></span>
+            </div>
+            <a href="#portfolio" class="hero-btn">
+                <span>EXPLORE WORKS</span>
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2 class="section-title">
+            <span class="label">WORKS</span>
+        </h2>
+
+        <div class="portfolio-section">
+            <h3 class="portfolio-section-title">
+                <span class="section-icon">🎬</span>
+                AI视频作品
+            </h3>
+            <div class="portfolio-grid" id="ai-video-grid">
+                <div class="portfolio-item video-item">
+                    <div class="video-container">
+                        <video class="video-player" preload="metadata">
+                            <source src="Resource/Video/01.安慕希整颗蓝莓.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">▶</div>
+                        <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>安慕希整颗蓝莓</h4>
+                        <p>AI视频创作 - 品牌营销创意短片</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI视频</span>
+                            <span class="tag">品牌</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item video-item">
+                    <div class="video-container">
+                        <video class="video-player" preload="metadata">
+                            <source src="Resource/Video/02.小琨追光.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">▶</div>
+                        <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>小琨追光</h4>
+                        <p>AI视频创作 - 人物追光特效视频</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI视频</span>
+                            <span class="tag">特效</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item video-item">
+                    <div class="video-container">
+                        <video class="video-player" preload="metadata">
+                            <source src="Resource/Video/03.野生菌宣传.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">▶</div>
+                        <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>野生菌宣传</h4>
+                        <p>AI视频创作 - 自然主题短片</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI视频</span>
+                            <span class="tag">公益宣传</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item video-item">
+                    <div class="video-container">
+                        <video class="video-player" preload="metadata">
+                            <source src="Resource/Video/04.暗夜.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">▶</div>
+                        <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>暗夜</h4>
+                        <p>AI视频创作 - 暗色调氛围感视频</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI视频</span>
+                            <span class="tag">氛围</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item video-item">
+                    <div class="video-container">
+                        <video class="video-player" preload="metadata">
+                            <source src="Resource/Video/05.拾古斋.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">▶</div>
+                        <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>拾古斋</h4>
+                        <p>AI视频创作 - 文化主题短片</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI视频</span>
+                            <span class="tag">文化</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item video-item">
+                    <div class="video-container">
+                        <video class="video-player" preload="metadata">
+                            <source src="Resource/Video/06.熊猫的一天.mp4" type="video/mp4">
+                        </video>
+                        <div class="play-icon">▶</div>
+                        <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>熊猫的一天</h4>
+                        <p>AI视频创作 - 动物主题趣味视频</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">AI视频</span>
+                            <span class="tag">绘本</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="view-more-container">
+                <button class="view-more-btn" id="view-more-ai">
+                    <span>查看更多</span>
+                    <span class="arrow">›</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="portfolio-section">
+            <h3 class="portfolio-section-title">
+                <span class="section-icon">📈</span>
+                PPT作品
+            </h3>
+            <div class="portfolio-grid ppt-grid">
+                <div class="portfolio-item ppt-item" data-ppt="ppt01">
+                    <div class="portfolio-img">
+                        <img src="Resource/Image/ppt/ppt01/1.jpg" alt="PPT作品1">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>PPT作品一</h4>
+                        <p>商业演示文稿设计</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">PPT设计</span>
+                            <span class="tag">商业</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item ppt-item" data-ppt="ppt02">
+                    <div class="portfolio-img">
+                        <img src="Resource/Image/ppt/ppt02/1.jpg" alt="PPT作品2">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>PPT作品二</h4>
+                        <p>商业演示文稿设计</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">PPT设计</span>
+                            <span class="tag">商业</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item ppt-item" data-ppt="ppt03">
+                    <div class="portfolio-img">
+                        <img src="Resource/Image/ppt/ppt03/1.jpg" alt="PPT作品3">
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>PPT作品三</h4>
+                        <p>商业演示文稿设计</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">PPT设计</span>
+                            <span class="tag">商业</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="ai-video-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">🎬 AI视频作品</h3>
+                <span class="modal-close" id="close-ai-modal">×</span>
+            </div>
+            <div class="modal-body">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/01.安慕希整颗蓝莓.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>安慕希整颗蓝莓</h4>
+                            <p>AI视频创作 - 品牌营销创意短片</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">品牌</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/02.小琨追光.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>小琨追光</h4>
+                            <p>AI视频创作 - 人物追光特效视频</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">特效</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/03.野生菌宣传.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>野生菌宣传</h4>
+                            <p>AI视频创作 - 自然主题短片</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">公益宣传</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/04.暗夜.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>暗夜</h4>
+                            <p>AI视频创作 - 暗色调氛围感视频</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">氛围</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/05.拾古斋.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>拾古斋</h4>
+                            <p>AI视频创作 - 文化主题短片</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">文化</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/06.熊猫的一天.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>熊猫的一天</h4>
+                            <p>AI视频创作 - 动物主题趣味视频</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">绘本</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/07.末世求生.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>末世求生</h4>
+                            <p>AI视频创作 - 末世题材短片</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">末世</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/08.夜话.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>夜话</h4>
+                            <p>AI视频创作 - 情感叙事类短片</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">叙事</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-item video-item">
+                        <div class="video-container">
+                            <video class="video-player" preload="metadata">
+                                <source src="Resource/Video/09.雨夜独白.mp4" type="video/mp4">
+                            </video>
+                            <div class="play-icon">▶</div>
+                            <button class="fullscreen-btn" title="全屏播放">⛶</button>
+                        </div>
+                        <div class="portfolio-info">
+                            <h4>雨夜独白</h4>
+                            <p>AI视频创作 - 雨夜氛围情感短片</p>
+                            <div class="portfolio-tags">
+                                <span class="tag">AI视频</span>
+                                <span class="tag">情感</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="video-fullscreen-modal" class="modal video-fullscreen-modal">
+        <div class="modal-content video-fullscreen-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="fullscreen-video-title">🎬 视频播放</h3>
+                <span class="modal-close" id="close-fullscreen-modal">×</span>
+            </div>
+            <div class="modal-body video-fullscreen-body">
+                <video id="fullscreen-video-player" class="fullscreen-video" controls preload="metadata">
+                    <source src="" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- PPT查看模态框 -->
+    <div id="ppt-modal" class="modal">
+        <div class="modal-content ppt-modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="ppt-title">📑 PPT作品</h3>
+                <span class="modal-close" id="close-ppt-modal">×</span>
+            </div>
+            <div class="modal-body ppt-modal-body">
+                <div class="ppt-viewer">
+                    <img id="ppt-image" src="" alt="PPT页面">
+                    <div class="ppt-controls">
+                        <button class="ppt-nav-btn" id="ppt-prev">‹</button>
+                        <span class="ppt-page-info" id="ppt-page-info">1 / 1</span>
+                        <button class="ppt-nav-btn" id="ppt-next">›</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="skills">
+        <h2 class="section-title">
+            <span class="label">SKILLS</span>
+        </h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <span class="skill-id">// SKILL_01</span>
+                <div class="skill-icon">📱</div>
+                <h4>iOS 开发</h4>
+                <p>Swift / SwiftUI 原生应用开发，App Store 应用上架与维护</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-id">// SKILL_02</span>
+                <div class="skill-icon">💻</div>
+                <h4>Web 开发</h4>
+                <p>前后端分离架构，React/Vue 框架，响应式页面构建</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-id">// SKILL_03</span>
+                <div class="skill-icon">🤖</div>
+                <h4>智能体开发</h4>
+                <p>智能体规划设计，Coze 工作流编排，构建智能化解决方案</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-id">// SKILL_04</span>
+                <div class="skill-icon">🎨</div>
+                <h4>PPT 设计</h4>
+                <p>商业演示文稿设计，视觉呈现与品牌策划</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-id">// SKILL_05</span>
+                <div class="skill-icon">✨</div>
+                <h4>AI 设计</h4>
+                <p>AI 辅助设计工具，创意概念生成与视觉实现</p>
+            </div>
+            <div class="skill-card">
+                <span class="skill-id">// SKILL_06</span>
+                <div class="skill-icon">🎬</div>
+                <h4>AI 视频</h4>
+                <p>AI 视频生成与剪辑，创意内容制作与后期处理</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-contact">
+        <h2 class="section-title">
+            <span class="label">ABOUT</span>
+        </h2>
+        <div class="about-contact-container">
+            <div class="about-section">
+                <div class="avatar-container">
+                    <div class="avatar">👨‍💻</div>
+                </div>
+                <div class="about-text">
+                    <h3>HELLO WORLD <span class="typing">_</span></h3>
+                    <p>我是一名专注于数字创意的前端开发者和UI设计师。热衷于将想象转化为现实，用代码和设计创造独特的数字体验。擅长构建具有未来感的用户界面，关注每一个细节，追求极致的用户体验。我相信科技与艺术的融合能够创造无限可能。
+                    </p>
+                </div>
+            </div>
+            <div class="contact-section">
+                <h3>联系我</h3>
+                <p>欢迎与我交流合作，一起创造更多精彩作品</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <span>zyqf1234@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📕</span>
+                        <a href="https://xhslink.com/m/4AxjC5sHMLP"
+                            target="_blank">https://xhslink.com/m/4AxjC5sHMLP</a>
+                    </div>
+                </div>
+                <div class="qrcode-container">
+                    <div class="qrcode">
+                        <img src="Resource/Image/code.jpg" alt="二维码">
+                    </div>
+                    <span>扫码联系</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© <span class="accent">2026</span> // QIUPENG.DEV // ALL SYSTEMS OPERATIONAL // <span
+                class="accent">v2.6.0</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
