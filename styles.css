@@ -1577,6 +1577,10 @@ section {
 }
 
 .video-fullscreen-content {
+    animation: none;
+}
+
+.video-fullscreen-content {
     width: 90%;
     max-width: 960px;
     background: var(--bg-deep);
@@ -1666,7 +1670,11 @@ footer .accent {
     }
 
     .hero-meta {
-        font-size: 0.65rem;
+        display: none;
+    }
+
+    .hero-corners {
+        display: none;
     }
 
     .hero::after {
@@ -1711,6 +1719,101 @@ footer .accent {
 
     section {
         padding: 4rem 5%;
+    }
+
+    /* 视频弹窗移动端优化 */
+    .video-fullscreen-modal .modal-content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        border: none;
+        animation: none;
+        margin: 0;
+        background: #000;
+        box-shadow: none;
+    }
+
+    .video-fullscreen-body {
+        padding: 0 !important;
+    }
+
+    .fullscreen-iframe {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+    }
+
+    .video-fullscreen-modal .modal-header {
+        padding: 0.6rem 0.8rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(4, 6, 15, 0.95);
+    }
+
+    .video-fullscreen-modal .modal-title {
+        font-size: 1rem;
+    }
+
+    .video-fullscreen-modal .modal-close {
+        width: 32px;
+        height: 32px;
+        font-size: 1.5rem;
+    }
+
+    /* PPT弹窗移动端优化 */
+    #ppt-modal .modal-content {
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        border: none;
+        animation: none;
+        margin: 0;
+        background: var(--bg-card-solid);
+        box-shadow: none;
+    }
+
+    #ppt-modal .modal-header {
+        padding: 0.6rem 0.8rem;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: rgba(4, 6, 15, 0.95);
+    }
+
+    #ppt-modal .modal-title {
+        font-size: 1rem;
+    }
+
+    #ppt-modal .modal-close {
+        width: 32px;
+        height: 32px;
+        font-size: 1.5rem;
+    }
+
+    .ppt-modal-body {
+        padding: 0 !important;
+    }
+
+    .ppt-viewer img {
+        max-width: 100%;
+        max-height: calc(100vh - 120px);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .ppt-controls {
+        margin-top: 0.8rem;
+        gap: 1rem;
+    }
+
+    .ppt-nav-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.5rem;
+    }
+
+    .ppt-page-info {
+        font-size: 0.8rem;
     }
 }
 
