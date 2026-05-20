@@ -102,47 +102,11 @@ document.querySelectorAll('nav a').forEach(anchor => {
     });
 });
 
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0) translateX(0)';
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.skill-card, .portfolio-item').forEach((item, index) => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(50px)';
-    item.style.transition = `opacity 0.6s ease ${index * 0.08}s, transform 0.6s ease ${index * 0.08}s`;
-    observer.observe(item);
-});
-
-document.querySelectorAll('.skill-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const cx = rect.width / 2;
-        const cy = rect.height / 2;
-        const rotateY = ((x - cx) / cx) * 6;
-        const rotateX = -((y - cy) / cy) * 6;
-        card.style.transform = `translateY(-8px) perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-    });
-});
 
 const bilibiliLinks = {
     '安慕希整颗蓝莓': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589974261592&bvid=BV1ofLJ6tEML&cid=38405014418&p=1&t=0',
     '小琨追光': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589974324640&bvid=BV17fLJ6bEPa&cid=38405015730&p=1&t=0',
-    '野生菌宣传': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589974327290&bvid=BV1jfLJ6bEv8&cid=38405017351&p=1&t=0',
+    '野生菌': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589974327290&bvid=BV1jfLJ6bEv8&cid=38405017351&p=1&t=0',
     '暗夜': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589991101734&bvid=BV17ZLJ6FESx&cid=38405081118&p=1&t=0',
     '拾古斋': 'https://player.bilibili.com/player.html?isOutside=true&aid=116589991101915&bvid=BV17ZLJ6FE1P&cid=38405144844&p=1&t=0',
     '熊猫的一天': 'https://player.bilibili.com/player.html?isOutside=true&aid=116590846674401&bvid=BV1FdLH6uEfr&cid=38409668943&p=1&t=0',
@@ -153,15 +117,15 @@ const bilibiliLinks = {
 
 const pptData = {
     'ppt01': {
-        title: 'PPT作品一',
+        title: '乐活商业计划书',
         images: ['Resource/Image/ppt/ppt01/1.jpg', 'Resource/Image/ppt/ppt01/2.jpg', 'Resource/Image/ppt/ppt01/3.jpg', 'Resource/Image/ppt/ppt01/4.jpg', 'Resource/Image/ppt/ppt01/5.jpg', 'Resource/Image/ppt/ppt01/6.jpg', 'Resource/Image/ppt/ppt01/7.jpg', 'Resource/Image/ppt/ppt01/8.jpg', 'Resource/Image/ppt/ppt01/9.jpg', 'Resource/Image/ppt/ppt01/10.jpg', 'Resource/Image/ppt/ppt01/11.jpg']
     },
     'ppt02': {
-        title: 'PPT作品二',
+        title: '果漾健康饮品',
         images: ['Resource/Image/ppt/ppt02/1.jpg', 'Resource/Image/ppt/ppt02/2.jpg', 'Resource/Image/ppt/ppt02/3.jpg', 'Resource/Image/ppt/ppt02/4.jpg', 'Resource/Image/ppt/ppt02/5.jpg', 'Resource/Image/ppt/ppt02/6.jpg', 'Resource/Image/ppt/ppt02/7.jpg', 'Resource/Image/ppt/ppt02/8.jpg', 'Resource/Image/ppt/ppt02/9.jpg', 'Resource/Image/ppt/ppt02/10.jpg']
     },
     'ppt03': {
-        title: 'PPT作品三',
+        title: '康美数字医疗科技',
         images: ['Resource/Image/ppt/ppt03/1.jpg', 'Resource/Image/ppt/ppt03/2.jpg', 'Resource/Image/ppt/ppt03/3.jpg', 'Resource/Image/ppt/ppt03/4.jpg', 'Resource/Image/ppt/ppt03/5.jpg', 'Resource/Image/ppt/ppt03/6.jpg', 'Resource/Image/ppt/ppt03/7.jpg', 'Resource/Image/ppt/ppt03/8.jpg', 'Resource/Image/ppt/ppt03/9.jpg', 'Resource/Image/ppt/ppt03/10.jpg', 'Resource/Image/ppt/ppt03/11.jpg', 'Resource/Image/ppt/ppt03/12.jpg', 'Resource/Image/ppt/ppt03/13.jpg', 'Resource/Image/ppt/ppt03/14.jpg']
     }
 };
